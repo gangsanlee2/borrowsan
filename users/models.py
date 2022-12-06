@@ -7,14 +7,16 @@ class User(models.Model):
     use_in_migration = True
     user_id = models.AutoField(primary_key=True)
     email = models.TextField()
-    nickname = models.TextField()
     password = models.TextField()
-    age = models.IntegerField()
+    birth = models.IntegerField()
     address = models.TextField()
-    most_used_location = models.TextField()
+    most_use_loc = models.TextField()
     count_month = models.IntegerField()
-    current_location = models.TextField()
+    cur_lat = models.FloatField()
+    cur_lng = models.FloatField()
     pay_info = models.TextField()
+    grade = models.IntegerField()
+    claim = models.TextField()
 
     admin = models.ForeignKey(Admin, on_delete=models.CASCADE)
 
@@ -22,4 +24,4 @@ class User(models.Model):
         db_table = "users"
 
     def __str__(self):
-        return f'{self.user_id} {self.email} {self.nickname} {self.password} {self.age} {self.age} {self.address} {self.most_used_location} {self.count_month} {self.current_location} {self.pay_info} {self.admin}'
+        return f'{self.user_id} {self.email} {self.password} {self.birth} {self.address} {self.most_use_loc} {self.count_month} {self.cur_lat} {self.cur_lng} {self.pay_info} {self.grade} {self.claim} {self.admin}'
